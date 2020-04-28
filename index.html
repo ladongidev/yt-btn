@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<style type="text/css">
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+</style>
+</head>
+<body></body>
+<script type="text/javascript">
+	function gVar() {
+	    var vars = {};
+	    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+	    function(m,key,value) {
+	      vars[key] = value;
+	    });
+	    return vars;
+	}
+
+var ytID = gVar()["v"];
+
+var target = gVar()["t"];
+
+var ytapi = `<iframe src="https://y-api.org/button/?v=`+ytID+`&f=mp3&bc=#0EAA4C" FRAMEBORDER="0" MARGINWIDTH="0" MARGINHEIGHT="0" SCROLLING="no" width="200px" height="40px">`;
+
+var recordmp3 = `<iframe style="height:50px;border:0;width:200px;  margin-top: 10px;  display: inline-block;" src="https://recordmp3.co/#/watch?layout=button&amp;t_press_to_start=Convert%20to%20mp3&amp;t_waiting_for_worker=Menyiapkan%20Link...&amp;t_in_queue=Converting&amp;t_converting=Proses...&amp;t_done=Download&amp;v=`+ytID+`" allowtransparency="true" scrolling="no"></iframe>`;
+
+var body = '';
+
+switch (target) {
+  case 'ytapi':
+    body = mp3;
+    break;
+  case 'recordmp3':
+    body = mp4;
+    break;
+  case 'multi':
+    body = ytapi+recordmp3;
+    break;
+}
+
+if (type) {
+    document.write(body);
+}
+
+</script>
+</html>
