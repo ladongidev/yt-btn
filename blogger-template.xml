@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head>
+    <b:if cond='data:blog.isMobile'>
+        <b:else>
+        </b:else>
+    </b:if>
+    <b:include data='blog' name='all-head-content'>
+        <title>
+            <data:blog.pageTitle/>
+        </title>
+        <b:skin><![CDATA[html, body { height: 100%; overflow: auto;}>]]></b:skin>
+    </b:include>
+</head>
+<body>
+    <b:section class='main' id='main' showaddelement='yes'/>
+<script type='text/javascript'>
+	//<![CDATA[
+		function gVar(){var n={};window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(r,i,o){n[i]=o});return n}
+		var v = gVar()["v"];
+		var target = gVar()["t"];
+
+		var ytapi = unescape('<iframe src=\"https:\/\/cdn.statically.io\/gh\/ladongidev\/yt-btn\/59f3019a\/index.html?v='+v+'&t=ytapi" sandbox=\"allow-scripts allow-same-origin\" FRAMEBORDER=\"0\" MARGINWIDTH=\"0\" MARGINHEIGHT=\"0\" SCROLLING=\"no\" width=\"100%\" max-height=\"40px\"><\/iframe>');
+
+		var recordmp3 = unescape('<iframe src=\"https:\/\/cdn.statically.io\/gh\/ladongidev\/yt-btn\/59f3019a\/index.html?v='+v+'&t=recordmp3" FRAMEBORDER=\"0\" MARGINWIDTH=\"0\" MARGINHEIGHT=\"0\" SCROLLING=\"no\" width=\"100%\" max-height=\"40px\"><\/iframe>');
+
+		var body = '';
+
+		switch (target) {
+		  case 'ytapi':
+		    body = ytapi;
+		    break;
+		  case 'recordmp3':
+		    body = recordmp3;
+		    break;
+		}
+
+		if (v) {
+		    document.write(body);
+		}
+	//]]>
+	</script>
+</body>
+</html>
